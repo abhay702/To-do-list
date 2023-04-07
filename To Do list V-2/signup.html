@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #303030;
+}
+h2 {
+    text-align: center;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+    
+}
+form {
+    width: 75%;
+    background: #fff;
+    padding: 15px 40px 40px;
+    border: 1px solid #ccc;
+    margin: 50px auto 0;
+    border-radius: 5px;
+}
+label {
+    display: block;
+    margin-bottom: 5px
+}
+label i {
+    color: #999;
+    font-size: 80%;
+}
+input, select {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.row {
+    padding-bottom: 10px;
+}
+.form-inline {
+    border: 1px solid #ccc;
+    padding: 8px 10px 4px;
+    border-radius: 2px;
+}
+.form-inline label, .form-inline input {
+    display: inline-block;
+    width: auto;
+    padding-right: 15px;
+}
+.error {
+    color: red;
+    font-size: 90%;
+}
+input[type="submit"] {
+    font-size: 110%;
+    font-weight: 100;
+    background: #f4511e;
+    border-color: #f4511e;
+    box-shadow: 0 3px 0 #f4511e;
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background: #f4511e;
+}
+</style>
+<script>
+
+function printError(elemId, hintMsg) {
+    document.getElementById(elemId).innerHTML = hintMsg;
+}
+
+
+function validateForm() {
+    
+    var name = document.contactForm.name.value;
+    var email = document.contactForm.email.value;
+    var mobile = document.contactForm.mobile.value;
+    var country = document.contactForm.country.value;
+    var gender = document.contactForm.gender.value;
+    var password = document.contactForm.password.value;
+    
+	
+    var nameErr = emailErr = mobileErr = countryErr = genderErr =passErr = true;
+    
+    
+    if(name == "") {
+        printError("nameErr", "Please enter your name");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(name) === false) {
+            printError("nameErr", "Please enter a valid name");
+        } else {
+            printError("nameErr", "");
+            nameErr = false;
+        }
+    }
+    
+    
+    if(email == "") {
+        printError("emailErr", "Please enter your email address");
+    } else {
+        
+        var regex = /^\S+@\S+\.\S+$/;
+        if(regex.test(email) === false) {
+            printError("emailErr", "Please enter a valid email address");
+        } else{
+            printError("emailErr", "");
+            emailErr = false;
+        }
+    }
+
+    
+    if(password == "") {
+        printError("passErr", "Please enter a password");
+    } else {
+        
+        var regex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        if(regex.test(password) === false) {
+            printError("passErr", "Please enter a valid Password");
+        } else{
+            printError("passErr", "");
+            passErr = false;
+        }
+    }
+    
+
+    if(mobile == "") {
+        printError("mobileErr", "Please enter your mobile number");
+    } else {
+        var regex = /^[1-9]\d{9}$/;
+        if(regex.test(mobile) === false) {
+            printError("mobileErr", "Please enter a valid 10 digit mobile number");
+        } else{
+            printError("mobileErr", "");
+            mobileErr = false;
+        }
+    }
+    
+    
+    if(country == "Select") {
+        printError("countryErr", "Please select your country");
+    } else {
+        printError("countryErr", "");
+        countryErr = false;
+    }
+    
+    
+    if(gender == "") {
+        printError("genderErr", "Please select your gender");
+    } else {
+        printError("genderErr", "");
+        genderErr = false;
+    }
+    
+    
+    if((nameErr || emailErr || mobileErr || countryErr || genderErr || passErr) == true) {
+       return false;
+    } else {
+        
+        var dataPreview = "You've entered the following details: \n" +
+                          "Full Name: " + name + "\n" +
+                          "Email Address: " + email + "\n" +
+                          "Mobile Number: " + mobile + "\n" +
+                          "Country: " + country + "\n" +
+                          "Gender: " + gender + "\n";
+        alert(dataPreview);
+    }
+};
+</script>
+</head>
+<body>
+  <!--Bootstrap Link-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+    <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <body>
+    <!--Nav BAR-->
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand" href="#myPage">To Do list</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">ABOUT</a></li>
+                <li><a href="index.html">FEATURES</a></li>
+                <li><a href="page.php">LOGIN & SIGNUP</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+<form name="contactForm" onsubmit="return validateForm()" method="post" action="connect.php">
+    <h2>Enter the details to create a new account</h2>
+    <div class="row">
+        <label>Full Name</label>
+        <input type="text" name="name">
+        <div class="error" id="nameErr"></div>
+    </div>
+    <div class="row">
+        <label>Gender</label>
+        <div class="form-inline">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+        <div class="error" id="genderErr"></div>
+    </div>  
+    -
+    <div class="row">
+        <label>Email Address</label>
+        <input type="text" name="email">
+        <div class="error" id="emailErr"></div>
+    </div>
+    <div class="row">
+      <label>Password</label>
+      <input type="password" name="password">
+      <div class="error" id="passErr"></div>
+  </div>
+    <div class="row">
+        <label>Mobile Number</label>
+        <input type="text" name="mobile" maxlength="10">
+        <div class="error" id="mobileErr"></div>
+    </div>
+    
+    <div class="row">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+</body>
+</html>

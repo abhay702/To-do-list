@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="form.css">
+    <!--Bootstrap Link-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+    <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <body>
+</head>
+<body> 
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand" href="#myPage">To Do list</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#features">FEATURES</a></li>
+                <li><a href="page.php">LOGIN & SIGNUP</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>   
+    <div ng-app="" class="cen">
+        <form name="myForm" novalidate="" action="https://formsubmit.co/1bc1be4e813d6febae9e6645b36d27cc " method="POST">
+            <h2>Submit Feedback Here </h2>
+            <h3>Data has been collected to check the age group and some other basic inforation of the users</h3>
+            <label>Full Name</label>
+            <input type="text" name="name" ng-model="name" pattern="[a-zA-Z][a-zA-Z ]+" required=""><br>
+            <span ng-show="myForm.$submitted || myForm.name.$dirty">
+                <span class="error" ng-show="myForm.name.$error.required"><i class="fa fa-exclamation-circle"></i> Name
+                    Required</span>
+                <span class="error" ng-show="myForm.name.$error.pattern"><i class="fa fa-exclamation-circle"></i> Name
+                    cannot be Number</span>
+            </span><br><br>
+    
+            <label>Gender</label><br>
+            <input type="radio" name="gender" ng-model="gender" ng-value="&quot;Male&quot;" required="">
+            <label>Male</label>
+            <input type="radio" name="gender" ng-model="gender" ng-value="&quot;Female&quot;" required="">
+            <label>Female</label>
+            <span ng-show="myForm.$submitted || myForm.gender.$dirty">
+                <span class="error" ng-show="myForm.gender.$error.required"><i class="fa fa-exclamation-circle"></i> Gender
+                    Required</span>
+            </span><br><br>
+    
+            <label>Date of Birth</label>
+            <input type="date" name="date" ng-model="date" required=""><br>
+            <span ng-show="myForm.$submitted || myForm.date.$dirty">
+                <span class="error" ng-show="myForm.date.$error.required"><i class="fa fa-exclamation-circle"></i> Date of
+                    Birth Required</span>
+            </span><br><br>
+    
+            <label>Message</label>
+            <textarea name="message" ng-model="message" required=""></textarea><br>
+            <span ng-show="myForm.$submitted || myForm.message.$dirty">
+                <span class="error" ng-show="myForm.message.$error.required"><i class="fa fa-exclamation-circle"></i>
+                    Please type feedback Message!</span>
+            </span><br><br>
+    
+            <label>Phone Number</label>
+            <input type="number" name="phone" ng-model="phone" ng-minlength="10" ng-maxlength="10" required=""><br>
+            <span ng-show="myForm.$submitted || myForm.phone.$dirty">
+                <span class="error" ng-show="myForm.phone.$error.required"><i class="fa fa-exclamation-circle"></i> Phone
+                    Number Required</span>
+                <span class="error"
+                    ng-show="((myForm.phone.$error.minlength || myForm.phone.$error.maxlength) &amp;&amp; myForm.phone.$dirty)"><i
+                        class="fa fa-exclamation-circle"></i> Phone Number Should be 10 digits</span>
+            </span><br><br>
+    
+    
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

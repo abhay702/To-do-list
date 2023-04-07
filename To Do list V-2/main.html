@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">  
+    <title>To do list</title>
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iconscout Link For Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!--Bootstrap Link-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+    <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <body>
+<style>
+    .navbar {
+    margin-bottom: 0;
+    background-color: #f4511e;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+</style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#myPage">To Do list</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="index.html">ABOUT</a></li>
+              <li><a href="index.html">FEATURES</a></li>
+              <li><a href="page.php">LOGIN & SIGNUP</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="wrapper">
+      <div class="task-input">
+        <input type="text" placeholder="Add a new task">
+      </div>
+      <div class="controls">
+        <div class="filters">
+          <span class="active" id="all">All</span>
+          <span id="pending">Pending</span>
+          <span id="completed">Completed</span>
+        </div>
+        <button class="clear-btn">Clear All</button>
+      </div>
+      <ul class="task-box"></ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
